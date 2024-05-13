@@ -20,7 +20,7 @@ export default function Navbar() {
           I.M. project
         </NavLink>
       </div>
-      <div className={`navbar-section ${isActive ? "active":""}`}>
+      <div className={`navbar-section ${isActive ? "active":""}`} >
         <ul className="navbar-menu">
           <li>
             <NavLink exact to="/login" activeClassName="active">
