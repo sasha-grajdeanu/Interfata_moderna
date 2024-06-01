@@ -1,0 +1,24 @@
+.card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--glaucous);
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 586px;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main-window {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}

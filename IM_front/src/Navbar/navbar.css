@@ -11,12 +11,11 @@
 }
 
 .navbar-brand {
-  padding: 16px;
+  padding: 24px;
 }
 
 
 .navbar-brand a {
-  padding: 16px;
   font-family: "Roboto Mono", monospace;
   color: #ffffff;
   font-size: 24px;
@@ -56,14 +55,59 @@
   font-size: 16px;
 }
 
+.hamburger-menu {
+  display: none;
+}
+
+
 @media screen and (max-width: 768px) {
-  .menu-icon {
-    display: block;
+  .navbar-menu {
+    gap:0;
+    display: none;
+    left: 0;
+    width: 100%;
+    top: 68px;
+    background-color: var(--federal-blue);
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    margin:0;
+    margin-top: 8px;
   }
 
-  .navbar-menu {
+  .navbar-menu li {
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    transition: ease-in-out 0.3s;
+  }
+
+  .navbar-menu li:hover {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    border-radius: 0;
+    background-color: var(--zaffre);
+    transition: ease-in-out 0.3s;
+  }
+
+  .hamburger-menu {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    cursor: pointer;
+    margin-right: 16px;
+  }
+
+  .navbar-section.active .navbar-menu {
+    display: flex;
+  }
+
+  .bar{
+    margin:2px;
+    width:24px;
+    height:4px;
+    background-color: #ffffff;
   }
 }

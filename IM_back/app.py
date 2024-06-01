@@ -13,11 +13,12 @@ import scripts.get_history_payment as history
 from flask_jwt_extended import create_access_token, JWTManager
 import jwt
 from flask_cors import CORS
+from flask_swagger_ui import get_swaggerui_blueprint
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['JWT_SECRET_KEY'] = 'enjoy_the_silence'
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=30)
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=10)
 jwt_t = JWTManager(app)
 
 

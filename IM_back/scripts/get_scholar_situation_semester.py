@@ -18,5 +18,5 @@ def get_courses(username, password, semester):
                 new_session, 2, val)
             return info_semester
     else:
-        print("LOGIN FAILED");
+        print("LOGIN FAILED")
         return -2
