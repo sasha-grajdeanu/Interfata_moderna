@@ -19,18 +19,11 @@ selection_info_bp = Blueprint('selection_info', __name__, url_prefix='/selection
             'type': 'string',
             'required': True,
             'description': 'JWT Authorization header using the Bearer scheme. Example: "Authorization: Bearer {token}"'
-        },
-        {
-            'name': 'semester',
-            'in': 'query',
-            'type': 'string',
-            'required': True,
-            'description': 'The semester for which selection are requested.'
         }
     ],
     'responses': {
         '200': {
-            'description': 'Information about semester',
+            'description': 'Information about student and his faculty',
             'schema': {
                 'type': 'object',
                 'properties': {
@@ -54,15 +47,6 @@ selection_info_bp = Blueprint('selection_info', __name__, url_prefix='/selection
                 }
             }
         },
-        '400': {
-            'description': 'Missing semester',
-            'schema': {
-                'type': 'object',
-                'properties': {
-                    'error': {'type': 'string'}
-                }
-            }
-        }
     }
 })
 def selection_endpoint():
@@ -77,17 +61,12 @@ def selection_endpoint():
             if type(dict_data) is tuple:
                 return jsonify(dict_data[0]), dict_data[1]
             else:
-                try:
-                    username = dict_data["username"]
-                    password = dict_data["password"]
-
-                    semester = int(request.args.get("semester"))
-                    selection_info = get_selection(username, password, semester)
-                    if type(response) is bool:
-                        return jsonify({"error": "Parametrii nevalizi"}), 401
-                    else:
-                        return jsonify(selection_info[0]), 200
-                except TypeError:
-                    return jsonify({"error": "Miss parameter semester"}), 400
+                username = dict_data["username"]
+                password = dict_data["password"]
+                selection_info = get_selection(username, password)
+                if type(response) is bool:
+                    return jsonify({"error": "Parametrii nevalizi"}), 401
+                else:
+                    return jsonify(selection_info), 200
     else:
         return jsonify({"error": "Miss parameter authorization"}), 401

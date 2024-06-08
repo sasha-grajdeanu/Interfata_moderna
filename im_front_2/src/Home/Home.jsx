@@ -1,28 +1,27 @@
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center font-josefinSans md:mx-16 mx-6 mb-4 gap-4">
+    <div className="flex flex-col justify-center font-urbanist md:mx-16 mx-6 mb-4">
       <div
         id="header-intro"
-        className="flex flex-col items-center justify-center my-8"
+        className="flex flex-col justify-center my-8 py-8 bg-Retrosphere-500 rounded-xl min-h-96"
       >
         <div
           id="header-info-top"
-          className="flex flex-col md:flex-row items-center justify-between"
+          className="flex flex-col md:flex-row items-center justify-center"
         >
           <p className="text-6xl">Salut! Aici </p>
-          <p className="text-[80px] md:text-[112px] md:pl-8">I.M. - 1</p>
+          <p className="text-[80px] md:text-[112px] md:pl-8 bg-clip-text font-semibold text-transparent bg-gradient-to-br from-Retrosphere-100 to-Retrosphere-200">I.M. - 1</p>
         </div>
-        <div id="header-info-bottom"></div>
-        <div>
-          <p className="text-center text-4xl md:text-5xl">
+        <div id="header-info-bottom">
+        <p className="text-center text-4xl md:text-5xl">
             Interfața modernă pentru aplicația eSims
           </p>
         </div>
       </div>
-      <div className="bg-[var(--wenge)] flex flex-col justify-between items-center md:flex-row p-4 rounded-xl text-white">
+      <div className="bg-gradient-to-tl from-Retrosphere-100 to-Retrosphere-200 flex flex-col justify-between items-center md:flex-row p-4 rounded-xl text-white mb-8">
         <div className="grid gap-auto grid-cols-3 items-center xl:gap-2">
           <h1 className="text-2xl col-span-full grid-flow-col xl:col-span-1 md:text-4xl">
-            Cum utilizez aplicatia?
+            Cum utilizez aplicația?
           </h1>
           <ul className="text-xl list-decimal text-justify list-inside col-span-full xl:col-span-2 md:text-2xl">
             <li className="my-2">
@@ -59,25 +58,25 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[var(--wenge)] flex flex-col rounded-xl text-white">
+      <div className="bg-gradient-to-br from-Retrosphere-100 to-Retrosphere-200 flex flex-col rounded-xl text-white mb-8">
         <div className="border-b-4 p-4">
-          <h2 className="text-3xl">Despre aceasta aplicatie</h2>
+          <h2 className="text-3xl">Despre această aplicație</h2>
         </div>
         <div className="p-4">
           <h4 className="font-mono text-2xl my-2 text-justify">
-            I.M. - 1 : acronim de la Interfata Moderna - 1
+            I.M. - 1 : acronim de la Interfață Modernă - 1
           </h4>
           <p className="text-xl text-justify">
-            I.M. - 1 reprezinta un proiect prin care studentii isi pot vizualiza
-            situatia scolara, dar si situatia privind taxele printr-o interfata
-            moderna, dar si responsive pentru cei ce doresc sa si vizualizeze
-            notele prin intermediul telefonului mobil. Acest proiect a aparut ca
-            o reimprospatare a aplicatiei eSims, ce nu a mai evoluat din punct
-            de vedere al interfetei, dar si a caracterului de responsive din
-            anul 2005 (anul viitor se fac 20 de ani de functiune al eSims).
+            I.M. - 1 reprezintă un proiect prin care studenții își pot vizualiza
+            situația școlară, dar și situația privind taxele printr-o interfață
+            modernă, dar și responsive pentru cei ce doresc să-și vizualizeze
+            notele prin intermediul telefonului mobil. Acest proiect a apărut ca
+            o reîmprospătare a aplicației eSims, ce nu a mai evoluat din punct
+            de vedere al interfeței, dar și a caracterului de responsive din
+            anul 2005 (anul viitor se fac 20 de ani de funcțiune al platformei eSims).
             Astfel, pentru realizarea acestui proiect, s-a construit un API ce
-            se ocupa de conectarea la platforma eSims, dar si de colectarea
-            datelor ce se afla pe eSims.
+            se ocupă de conectarea la platforma eSims, dar și de colectarea
+            datelor utilizatorului expuse de către eSims.
           </p>
         </div>
       </div>

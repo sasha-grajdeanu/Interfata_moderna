@@ -12,6 +12,9 @@ def get_history_payment(username, password):
         beta = extract_table("GridViewTaxe", reset_call.text)
         if isinstance(beta, list):
             info_semester = create_dict_with_information(beta[1], new_session, 3, reset_call.text)
+            if info_semester is None:
+                info_semester = dict()
+                info_semester["message"] = "Nu sunt înregistrări de afişat."
         return info_semester
     else:
         print("logare esuata")

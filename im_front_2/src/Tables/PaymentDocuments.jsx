@@ -46,7 +46,55 @@ export default function PaymentDocuments() {
     fetchData();
   }, [jwt]);
 
-  
+  const renderTable = () => {
+    console.log(typeof paymentDocuments);
+    if (Array.isArray(paymentDocuments)) {
+      return (
+        <div className="flex flex-col w-full space-y-8">
+          <table className="table-auto border border-black w-full">
+            <thead>
+              <tr>
+                <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:text-sm">
+                  Denumire
+                </th>
+                <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:text-sm">
+                  Nr. Ordin de plata
+                </th>
+                <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:text-sm">
+                  Data emiterii
+                </th>
+                <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:text-sm">
+                  Suma
+                </th>
+              </tr>
+            </thead>
+            <tbody className="border border-black">
+              {paymentDocuments.map((item) => (
+                <tr className="border border-black font-mono">
+                  <td className="border border-black text-center max-[480px]:text-sm">
+                    {item.Den}
+                  </td>
+                  <td className="border border-black text-center max-[480px]:text-sm">
+                    {item.NrDocPlata}
+                  </td>
+                  <td className="border border-black text-center max-[480px]:text-sm">
+                    {item.DataDoc}
+                  </td>
+                  <td className="border border-black text-center max-[480px]:text-sm">
+                    {item.Suma}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    } else if (typeof paymentDocuments === "object") {
+      return <div className="p-4">{paymentDocuments["message"]}</div>;
+    } else {
+      return <div>No data available</div>;
+    }
+  };
 
   if (error) {
     return <p>Error: {error}</p>;
@@ -57,35 +105,6 @@ export default function PaymentDocuments() {
   }
 
   return (
-    <div className="flex flex-col w-full space-y-8">
-    <table className="table-auto border border-black w-full">
-      <thead>
-        <tr>
-          <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:text-sm">
-            Denumire
-          </th>
-          <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:text-sm">
-            Nr. Ordin de plata
-          </th>
-          <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:text-sm">
-            Data emiterii
-          </th>
-          <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:text-sm">
-            Suma
-          </th>
-        </tr>
-      </thead>
-      <tbody className="border border-black">
-          {paymentDocuments.map((item) => (
-            <tr className="border border-black font-mono">
-                <td className="border border-black text-center max-[480px]:text-sm">{item.Den}</td>
-                <td className="border border-black text-center max-[480px]:text-sm">{item.NrDocPlata}</td>
-                <td className="border border-black text-center max-[480px]:text-sm">{item.DataDoc}</td>
-                <td className="border border-black text-center max-[480px]:text-sm">{item.Suma}</td>
-            </tr>
-          ))}
-        </tbody>
-    </table>
-    </div>
+    <>{paymentDocuments !== null ? renderTable() : <div>Loading...</div>}</>
   );
 }

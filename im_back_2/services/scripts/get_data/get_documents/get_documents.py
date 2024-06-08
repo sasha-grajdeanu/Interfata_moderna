@@ -10,6 +10,9 @@ def get_documents(username, password):
         reset_call = reset_create_table(new_session)
         info_semester = create_dict_with_information(
             extract_table("GridViewDocPlata", reset_call.text), new_session, 3, reset_call.text)
+        if info_semester is None:
+            info_semester = dict()
+            info_semester["message"] = "Nu sunt înregistrări de afişat."
         return info_semester
     else:
         return False

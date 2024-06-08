@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { NavLink, useLocation, useNavigate} from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [nav, setNav] = useState(false);
@@ -13,25 +13,24 @@ export default function Navbar() {
     if (jwt) {
       setNavItems([
         { path: "/dashboard", label: "Situație școlară" },
-        { path: "/", label: "Deconectare", action: logout },
+        { path: "/", label: "Deconectare", action: logout }
       ]);
     } else {
       setNavItems([{ path: "/login", label: "Conectare" }]);
     }
   }, [location.pathname]);
 
+  const handleScroll = () => {
+    if (nav) {
+      setNav(false);
+    }
+  };
 
   useEffect(() => {
-
-    const handleScroll = () => {
-      if (nav) {
-        setNav(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [nav]);
 
@@ -49,12 +48,8 @@ export default function Navbar() {
   };
 
   return (
-    <div className="bg-[var(--wenge)] flex justify-between items-center h-16 px-4 text-white font-josefinSans">
-      <NavLink
-        exact
-        to="/"
-        className="text-3xl text-white"
-      >
+    <div className="bg-Retrosphere-100 flex justify-between items-center h-16 px-4 text-white font-urbanist">
+      <NavLink exact to="/" className="text-3xl text-white font-semibold">
         I.M. - 1
       </NavLink>
       <div className="hidden md:flex">
@@ -63,7 +58,7 @@ export default function Navbar() {
             <div
               key={item.path}
               onClick={item.action}
-              className="px-4 py-2 hover:bg-[var(--rose-quartz)] rounded-xl m-2 cursor-pointer duration-300 hover:text-black text-lg"
+              className="px-4 py-2 hover:bg-Retrosphere-200 rounded-xl font-semibold m-2 cursor-pointer duration-300  text-lg"
             >
               {item.label}
             </div>
@@ -72,7 +67,9 @@ export default function Navbar() {
               key={item.path}
               exact
               to={item.path}
-              className="px-4 py-2 hover:bg-[var(--rose-quartz)] rounded-xl m-2 cursor-pointer duration-300 hover:text-black text-lg"
+              className={`px-4 py-2 rounded-xl font-semibold m-2 duration-300 text-lg ${
+                location.pathname === item.path ? "bg-Retrosphere-200 duration-300" : "cursor-pointer"
+              }`}
             >
               {item.label}
             </NavLink>
@@ -81,12 +78,16 @@ export default function Navbar() {
       </div>
 
       <div onClick={handleNav} className="block md:hidden">
-        {nav ? <AiOutlineClose size={20} className="cursor-pointer" /> : <AiOutlineMenu size={20} className="cursor-pointer" />}
+        {nav ? (
+          <AiOutlineClose size={20} className="cursor-pointer" />
+        ) : (
+          <AiOutlineMenu size={20} className="cursor-pointer" />
+        )}
       </div>
       <div
         className={
           nav
-            ? "fixed md:hidden left-0 top-[64px] w-[100%] border-r border-r-gray-900 bg-[var(--wenge)] ease-in-out duration-0 flex flex-col text-lg"
+            ? "fixed md:hidden left-0 top-[64px] w-[100%] bg-Retrosphere-100 ease-in-out duration-0 flex flex-col text-lg"
             : "ease-in-out md:hidden w-[60%] duration-0 fixed top-0 bottom-0 left-[-100%] text-lg"
         }
       >
@@ -98,7 +99,7 @@ export default function Navbar() {
                 item.action();
                 resetNav();
               }}
-              className="p-4 hover:bg-[var(--rose-quartz)] duration-300 hover:text-black cursor-pointer w-full text-center"
+              className="p-4 hover:bg-Retrosphere-200 duration-300 cursor-pointer w-full text-center font-semibold"
             >
               {item.label}
             </div>
@@ -108,7 +109,9 @@ export default function Navbar() {
               exact
               to={item.path}
               onClick={resetNav}
-              className="p-4 hover:bg-[var(--rose-quartz)] duration-300 hover:text-black cursor-pointer w-full text-center"
+              className={`p-4 hover:bg-Retrosphere-200 duration-300 w-full text-center font-semibold ${
+                location.pathname === item.path ? "bg-Retrosphere-200 duration-300" : "cursor-pointer"
+              }`}
             >
               {item.label}
             </NavLink>

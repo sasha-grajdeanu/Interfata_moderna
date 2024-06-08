@@ -21,7 +21,7 @@ app.config['SWAGGER'] = {
     'description': 'This API allows users to access various endpoints related to the eSIMS system, including authentication and user data retrieval.'
 }
 swagger = Swagger(app)
-CORS(app)
+CORS(app, supports_credentials=True)
 app.config['JWT_SECRET_KEY'] = 'enjoy_the_silence'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=10)
 jwt = JWTManager(app)

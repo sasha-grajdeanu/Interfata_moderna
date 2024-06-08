@@ -4,12 +4,18 @@ export default function Grades() {
   const [grades, setGrades] = useState(null);
   const [error, setError] = useState(null);
   const jwt = sessionStorage.getItem("jwt");
+  let isFetching = false;
   console.log(jwt);
 
   useEffect(() => {
     if (!jwt) {
       return;
     }
+    if (isFetching) {
+      return;
+    }
+
+    isFetching = true;
 
     const fetchData = async () => {
       console.log("Fetching data with JWT:", jwt);
@@ -47,101 +53,96 @@ export default function Grades() {
   }, [jwt]);
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return (
+      <p className="p-4 text-2xl text-center w-full text-white">
+        Error: {error}
+      </p>
+    );
   }
 
   if (!grades) {
-    return <p className="text-2xl">Loading...</p>;
+    return (
+      <div className="flex justify-center items-center w-full p-auto">
+        <p className="text-xl text-center font-semibold py-2">
+          Vă rugăm, așteptați...
+        </p>
+      </div>
+    );
   }
 
   const oddIndexGrades = grades.filter((_, index) => index % 2 !== 0);
   console.log(oddIndexGrades);
 
   return (
-    <div className="flex flex-col w-full space-y-8">
-        <h1 className="text-xl text-center">Traiectorie pe semestre</h1>
-      <table className="table-auto border border-black w-full">
-        <thead>
-          <tr>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2">
-              Semestru
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:hidden">
-              Medie Aritmetrica
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2">
-              Medie ECTS
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2">
-              Puncte
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2">
-              Credite
-            </th>
-          </tr>
-        </thead>
-        <tbody className="border border-black">
-          {grades.map((item) => (
-            <tr className="border border-black font-mono">
-              <td className="border border-black text-center">
-                {item.Semestru}
-              </td>
-              <td className="border border-black text-center max-[480px]:hidden">
-                {item.MedieAritm}
-              </td>
-              <td className="border border-black text-center">
-                {item.MedieECTS}
-              </td>
-              <td className="border border-black text-center">{item.Puncte}</td>
-              <td className="border border-black text-center">
-                {item.Credite}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <h1 className="text-xl text-center">Traiectorie pe ani</h1>
-
-      <table className="table-auto border border-black w-full">
-        <thead>
-          <tr>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2">
-              An
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:hidden">
-              Medie Aritmetrica
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2">
-              Medie ECTS
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2">
-              Puncte
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2">
-              Credite
-            </th>
-          </tr>
-        </thead>
-        <tbody className="border border-black">
-          {oddIndexGrades.map((item, index) => (
-            <tr className="border border-black font-mono">
-              <td className="border border-black text-center">{index + 1}</td>
-              <td className="border border-black text-center max-[480px]:hidden">
-                {item.MedieAritmAn}
-              </td>
-              <td className="border border-black text-center">
-                {item.MedieECTSAn}
-              </td>
-              <td className="border border-black text-center">
-                {item.PuncteAn}
-              </td>
-              <td className="border border-black text-center">
-                {item.CrediteAn}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="">
+      <div className="flex flex-col w-full space-y-8">
+        <h1 className="text-xl font-semibold text-white text-center">
+          Traiectoria studentului pe semestre
+        </h1>
+        <div className="overflow-auto w-full">
+          <table className="table-auto text-lg w-full text-left">
+            <thead className="bg-Retrosphere-200 text-white font-semibold">
+              <tr className="py-2">
+                <th className="   p-2">Semestru</th>
+                <th className="p-2 max-[480px]:hidden">Media Aritmetică</th>
+                <th className="   p-2">Media ECTS</th>
+                <th className="   p-2">Puncte</th>
+                <th className="   p-2">Credite</th>
+              </tr>
+            </thead>
+            <tbody className=" bg-Retrosphere-500 font-medium">
+              {grades.map((item, index) => (
+                <tr
+                  className={`${
+                    index % 2 == 0 ? "bg-Retrosphere-500" : "bg-Retrosphere-400"
+                  }`}
+                >
+                  <td className=" p-2">{item.Semestru}</td>
+                  <td className="max-[480px]:hidden">
+                    {item.MedieAritm}
+                  </td>
+                  <td className=" p-2">{item.MedieECTS}</td>
+                  <td className=" p-2">{item.Puncte}</td>
+                  <td className=" p-2">{item.Credite}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <h1 className="text-xl text-center font-semibold text-white">
+          Traiectoria studentului pe ani
+        </h1>
+        <div className="overflow-auto w-full">
+          <table className="table-auto   w-full text-left">
+            <thead className="bg-Retrosphere-200 text-white font-semibold">
+              <tr>
+                <th className="p-2">An</th>
+                <th className="p-2 max-[480px]:hidden">Media Aritmetică</th>
+                <th className="   p-2">Medie ECTS</th>
+                <th className="   p-2">Puncte</th>
+                <th className="   p-2">Credite</th>
+              </tr>
+            </thead>
+            <tbody className=" bg-Retrosphere-500 font-medium">
+              {oddIndexGrades.map((item, index) => (
+                <tr
+                  className={`${
+                    index % 2 == 0 ? "bg-Retrosphere-500" : "bg-Retrosphere-400"
+                  }`}
+                >
+                  <td className=" p-2">{index + 1}</td>
+                  <td className="max-[480px]:hidden">
+                    {item.MedieAritmAn}
+                  </td>
+                  <td className=" p-2">{item.MedieECTSAn}</td>
+                  <td className=" p-2">{item.PuncteAn}</td>
+                  <td className=" p-2">{item.CrediteAn}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

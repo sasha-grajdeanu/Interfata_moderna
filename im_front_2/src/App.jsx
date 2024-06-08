@@ -12,8 +12,8 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen bg-[var(--magnolia)]">
-        <Navbar />
+      <div className="min-h-screen h-full">
+        <Navbar/>
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

@@ -49,6 +49,62 @@ export default function PaymentHistory() {
     fetchData();
   }, [jwt]);
 
+  const renderTable = () => {
+    console.log(typeof paymentHistory);
+    if (Array.isArray(paymentHistory)) {
+      return (
+        <div className="flex flex-col w-full space-y-8">
+          <table className="table-auto border border-black w-full">
+            <thead>
+              <tr>
+                <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[525px]:text-sm">
+                  Sursa
+                </th>
+                <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[525px]:text-sm">
+                  Valoare sursa
+                </th>
+                <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[525px]:text-sm">
+                  Destinatie
+                </th>
+                <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[525px]:text-sm">
+                  Valoare destinatie
+                </th>
+                <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:hidden max-[525px]:text-sm">
+                  Data
+                </th>
+              </tr>
+            </thead>
+            <tbody className="border border-black">
+              {paymentHistory.map((item) => (
+                <tr className="border border-black font-mono">
+                  <td className="border border-black text-center max-[525px]:text-sm">
+                    {item.Sursa}
+                  </td>
+                  <td className="border border-black text-center max-[525px]:text-sm">
+                    {item.SursaVal}
+                  </td>
+                  <td className="border border-black text-center max-[525px]:text-sm">
+                    {item.Destinatie}
+                  </td>
+                  <td className="border border-black text-center max-[525px]:text-sm">
+                    {item.DestVal}
+                  </td>
+                  <td className="border border-black text-center max-[480px]:hidden max-[525px]:text-sm">
+                    {item.DataM}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    } else if (typeof paymentHistory === "object") {
+      return <div className="p-4">{paymentHistory["message"]}</div>;
+    } else {
+      return <div>No data available</div>;
+    }
+  };
+
   if (error) {
     return <p>Error: {error}</p>;
   }
@@ -57,44 +113,5 @@ export default function PaymentHistory() {
     return <p className="text-2xl">Loading...</p>;
   }
 
-  return (
-    <div className="flex flex-col w-full space-y-8">
-      <table className="table-auto border border-black w-full">
-        <thead>
-          <tr>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[525px]:text-sm">
-              Sursa
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[525px]:text-sm">
-              Valoare sursa
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[525px]:text-sm">
-              Destinatie
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[525px]:text-sm">
-              Valoare destinatie
-            </th>
-            <th className="border bg-[var(--battleship-gray)] border-black p-2 max-[480px]:hidden max-[525px]:text-sm">
-              Data
-            </th>
-          </tr>
-        </thead>
-        <tbody className="border border-black">
-          {paymentHistory.map((item) => (
-            <tr className="border border-black font-mono">
-              <td className="border border-black text-center max-[525px]:text-sm">{item.Sursa}</td>
-              <td className="border border-black text-center max-[525px]:text-sm">
-                {item.SursaVal}
-              </td>
-              <td className="border border-black text-center max-[525px]:text-sm">
-                {item.Destinatie}
-              </td>
-              <td className="border border-black text-center max-[525px]:text-sm">{item.DestVal}</td>
-              <td className="border border-black text-center max-[480px]:hidden max-[525px]:text-sm">{item.DataM}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+  return <>{paymentHistory !== null ? renderTable() : <div>Loading...</div>}</>;
 }

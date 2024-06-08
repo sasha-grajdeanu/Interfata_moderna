@@ -23,7 +23,7 @@ semester_courses_bp = Blueprint('semester_courses', __name__, url_prefix='/semes
         {
             'name': 'semester',
             'in': 'query',
-            'type': 'string',
+            'type': 'int',
             'required': True,
             'description': 'The semester for which courses are requested.'
         }
@@ -96,12 +96,15 @@ def semester_courses_endpoint():
                     username = dict_data["username"]
                     password = dict_data["password"]
                     semester = int(request.args.get("semester"))
+                    if semester is None:
+                        raise ValueError("Missing semester parameter")
+                    print(semester)
                     courses = get_courses(username, password, semester)
                     if type(response) is bool:
                         return jsonify({"error": "Parametrii nevalizi"}), 401
                     else:
                         return jsonify(courses), 200
-                except TypeError:
-                    return jsonify({"error": "Miss parameter semester"}), 400
+                except ValueError as e:
+                    return jsonify({"error": str(e)}), 400
     else:
         return jsonify({"error": "Miss parameter authorization"}), 401

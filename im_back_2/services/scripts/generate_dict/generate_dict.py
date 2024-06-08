@@ -3,10 +3,11 @@ from services.scripts.extract_table.extract_table import extract_table
 from services.scripts.esims_functions.generate_course_history import generate_course_history
 
 
-def create_dict_with_information(table_html, session, type, html_usage):
+def create_dict_with_information(table_html, session, type_of_tabel, html_usage):
     result = dict()
-    if type == 1:
+    if type_of_tabel == 1:
         # pentru datele personale
+        print(type(table_html))
         table_parser = BeautifulSoup(table_html, features="html.parser")
         turn = 0
         for row in table_parser.find_all("tr"):
@@ -18,7 +19,7 @@ def create_dict_with_information(table_html, session, type, html_usage):
                 else:
                     result[key] = cell.get_text(strip=True)
                 turn += 1
-    elif type == 2:
+    elif type_of_tabel == 2:
         # tabelul cu materii + accesarea tabelelor cu materii (History)
         result = list()
         table_parser = BeautifulSoup(table_html, features="html.parser")
@@ -48,7 +49,7 @@ def create_dict_with_information(table_html, session, type, html_usage):
             no_line += 1
             if len(list(materie.keys())) != 0:
                 result.append(materie)
-    elif type == 3:
+    elif type_of_tabel == 3:
         # alte tabele
         result = list()
         table_parser = BeautifulSoup(table_html, features="html.parser")

@@ -1,9 +1,10 @@
 import Courses from "../Tables/Courses";
 import Grades from "../Tables/Grades";
-import PaymentDocuments from "../Tables/PaymentDocuments";
 import PersonalData from "../Tables/PersonalData";
-import PaymentHistory from "../Tables/PaymentHistory";
 import React, { useEffect, useRef, useState } from "react";
+import PaymentObligation from "../Tables/PaymentObligation";
+import Information from "../Tables/Information";
+import PaymentInformation from "../Tables/PaymentInformation";
 
 export default function Dashboard() {
   const [personalData, selectPersonalData] = useState(true);
@@ -11,6 +12,7 @@ export default function Dashboard() {
   const [paymentObligation, selectPaymentObligation] = useState(false);
   const [paymentInformation, selectPaymentInformation] = useState(false);
   const [semesterCourses, selectSemesterCourses] = useState(false);
+  const [information, selectInformation] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -21,6 +23,7 @@ export default function Dashboard() {
     selectPaymentInformation(false);
     selectSemesterCourses(false);
     setDropdownOpen(false);
+    selectInformation(false);
   };
 
   const chooseSemesterCourses = () => {
@@ -30,6 +33,7 @@ export default function Dashboard() {
     selectPaymentInformation(false);
     selectSemesterCourses(true);
     setDropdownOpen(false);
+    selectInformation(false);
   };
 
   const chooseGrades = () => {
@@ -39,6 +43,7 @@ export default function Dashboard() {
     selectPaymentInformation(false);
     selectSemesterCourses(false);
     setDropdownOpen(false);
+    selectInformation(false);
   };
 
   const choosePaymentObligation = () => {
@@ -48,6 +53,7 @@ export default function Dashboard() {
     selectPaymentInformation(false);
     selectSemesterCourses(false);
     setDropdownOpen(false);
+    selectInformation(false);
   };
 
   const choosePaymentInformation = () => {
@@ -57,6 +63,17 @@ export default function Dashboard() {
     selectPaymentObligation(false);
     selectPaymentInformation(true);
     setDropdownOpen(false);
+    selectInformation(false);
+  };
+
+  const chooseInformation = () => {
+    selectPersonalData(false);
+    selectSemesterCourses(false);
+    selectGrades(false);
+    selectPaymentObligation(false);
+    selectPaymentInformation(false);
+    setDropdownOpen(false);
+    selectInformation(true);
   };
 
   const menu = [
@@ -76,14 +93,19 @@ export default function Dashboard() {
       action: chooseGrades,
     },
     {
-      name: "Informatii privitoare la plati",
+      name: "Plăți efectuate",
       selected: paymentInformation,
       action: choosePaymentInformation,
     },
     {
-      name: "Obligatii de plata",
+      name: "Obligații de plată",
       selected: paymentObligation,
       action: choosePaymentObligation,
+    },
+    {
+      name: "Traseu educațional",
+      selected: information,
+      action: chooseInformation,
     },
   ];
 
@@ -101,32 +123,31 @@ export default function Dashboard() {
   }, [dropdownRef]);
 
   useEffect(() => {
-
     const handleScroll = () => {
       if (dropdownOpen) {
         setDropdownOpen(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [dropdownOpen]);
 
-
   return (
-    <div className="flex flex-col lg:flex-row justify-between min-h-[calc(100vh-64px)] font-josefinSans">
-      <div className="hidden max-lg:flex p-4">
+    <div className="flex flex-col justify-between min-h-[calc(100vh-64px)] font-urbanist">
+      <div className="hidden max-lg:flex mt-2 px-6">
         <button
           onClick={() => setDropdownOpen(!dropdownOpen)}
-          className="bg-[var(--battleship-gray)] text-white px-4 py-2 rounded w-full text-xl"
+          className="bg-Retrosphere-200 text-white px-4 py-2 rounded w-full text-xl font-semibold"
         >
           {personalData && "Date personale"}
           {semesterCourses && "Cursuri"}
           {grades && "Traiectorie note"}
-          {paymentObligation && "Obligatii de plata"}
-          {paymentInformation && "Informatii privitoare la plati"}
+          {paymentObligation && "Obligații de plată"}
+          {paymentInformation && "Plăți efectuate"}
+          {information && "Traseu educațional"}
         </button>
       </div>
 
@@ -134,15 +155,15 @@ export default function Dashboard() {
         <div
           id="menu-responsive"
           ref={dropdownRef}
-          className="flex flex-col text-xl text-white p-4 absolute z-10 w-full"
+          className="flex flex-col text-xl text-white px-6 py-2 absolute z-10 w-full "
         >
           {menu.map((item) => (
             <button
               key={item.name}
               className={
                 item.selected
-                  ? "bg-[var(--french-gray)] w-full justify-start text-black"
-                  : "bg-[var(--battleship-gray)] hover:bg-[var(--french-gray)] hover:text-black duration-200 cursor-pointer w-full justify-start"
+                  ? "bg-Retrosphere-200 w-full justify-start"
+                  : "bg-Retrosphere-300 hover:bg-Retrosphere-200 duration-200 cursor-pointer w-full justify-start"
               }
               onClick={item.action}
             >
@@ -152,14 +173,14 @@ export default function Dashboard() {
         </div>
       )}
 
-      <div className="hidden lg:flex flex-col bg-[var(--battleship-gray)] text-2xl items-center justify-center max-w-[256px]">
+      <div className="hidden lg:flex flex-row justify-around bg-Retrosphere-200 text-xl xl:text-2xl items-center w-full p-2 text-white">
         {menu.map((item) => (
           <button
             key={item.name}
             className={
               item.selected
-                ? "bg-[var(--french-gray)] w-full justify-start text-start"
-                : "bg-[var(--battleship-gray)] hover:bg-[var(--french-gray)] duration-200 cursor-pointer text-white hover:text-black w-full justify-start text-start"
+                ? "bg-Retrosphere-300 h-full text-center rounded font-semibold"
+                : "bg-Retrosphere-200 hover:bg-Retrosphere-300 duration-200 cursor-pointer  h-full text-center rounded"
             }
             onClick={item.action}
           >
@@ -168,19 +189,13 @@ export default function Dashboard() {
         ))}
       </div>
 
-      <div className="flex-grow flex justify-center items-start lg:items-center p-4">
+      <div className="flex-grow p-4 px-6">
         {personalData && <PersonalData />}
         {semesterCourses && <Courses />}
         {grades && <Grades />}
-        {paymentObligation && <div>Payment Obligation Component</div>}
-        {paymentInformation && (
-          <div className="flex flex-col space-y-4 w-full">
-            <h1 className="text-xl text-center">Documente de plata</h1>
-            <PaymentDocuments />
-            <h1 className="text-xl text-center">Istoricul de plati</h1>
-            <PaymentHistory />
-          </div>
-        )}
+        {paymentObligation && <PaymentObligation />}
+        {paymentInformation && <PaymentInformation />}
+        {information && <Information />}
       </div>
     </div>
   );
