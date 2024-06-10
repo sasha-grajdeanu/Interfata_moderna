@@ -203,14 +203,16 @@ export default function Courses() {
                     </td>
                   </tr>
                   {expandedRow === index && (
-                    <tr>
+                    <tr className={index % 2 === 0 ?
+                      "bg-Retrosphere-500"
+                      : "bg-Retrosphere-400"}>
                       <td colSpan="5">
                         <div className="px-2 py-4">
                           <div className="font-bold pb-1 w-full text-center">
                             Istoricul materiei: {item["Denumire disciplina"]}
                           </div>
                           <table className=" w-full">
-                            <thead className="bg-Retrosphere-200 text-white">
+                            <thead className="bg-Retrosphere-200 text-white text-left">
                               <tr className="">
                                 <th className=" p-2 max-md:hidden">
                                   An universitar
@@ -223,7 +225,9 @@ export default function Courses() {
                                 <th className=" p-2">Nota finală</th>
                               </tr>
                             </thead>
-                            <tbody className="bg-Retrosphere-400">
+                            <tbody className={index % 2 === 0 ?
+                        "bg-Retrosphere-400"
+                        : "bg-Retrosphere-500"}>
                               {item["Istoric"].map((row, rowIndex) => (
                                 <tr key={rowIndex} className="">
                                   <td className=" p-2 max-md:hidden">
