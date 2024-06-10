@@ -63,7 +63,7 @@ export default function Grades() {
   if (!grades) {
     return (
       <div className="flex justify-center items-center w-full p-auto">
-        <p className="text-xl text-center font-semibold py-2">
+        <p className="text-xl text-center font-semibold py-2 text-white">
           Vă rugăm, așteptați...
         </p>
       </div>

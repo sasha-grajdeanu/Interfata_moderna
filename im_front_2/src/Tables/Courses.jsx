@@ -181,7 +181,7 @@ export default function Courses() {
               {semesterCourses.map((item, index) => (
                 <React.Fragment key={index}>
                   <tr
-                    className={`cursor-pointer ${
+                    className={`cursor-pointer py-1 ${
                       expandedRow === index
                         ? "bg-Retrosphere-300 font-semibold text-white"
                         : index % 2 === 0 ?
@@ -190,15 +190,15 @@ export default function Courses() {
                     }`}
                     onClick={() => handleCourseClick(item, index)}
                   >
-                    <td className="max-md:hidden">
+                    <td className="px-2 py-1  max-md:hidden">
                       {item["AnUniv"]}
                     </td>
-                    <td className="px-1">
+                    <td className="py-1 px-2">
                       {item["Denumire disciplina"]}
                     </td>
-                    <td className=" px-1">{item["Credite"]}</td>
-                    <td className=" px-1">{item["Nota finala"]}</td>
-                    <td className=" max-[480px]:hidden px-1">
+                    <td className="py-1 px-2">{item["Credite"]}</td>
+                    <td className="py-1 px-2">{item["Nota finala"]}</td>
+                    <td className="py-1 max-[480px]:hidden px-2">
                       {item["Data"]}
                     </td>
                   </tr>
