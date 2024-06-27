@@ -110,8 +110,8 @@ export default function PaymentObligation() {
           disabled={loading}
           className={`px-2 py-2 rounded text-lg text-center w-full max-md:text-sm ${
             selectedSemester === i
-              ? "bg-Retrosphere-100 text-white duration-100 font-semibold"
-              : "bg-Retrosphere-200 text-white duration-100 cursor-pointer hover:bg-Retrosphere-100"
+              ? "bg-Retrosphere-100 dark:bg-Space-100 text-white duration-100 font-semibold"
+              : "bg-Retrosphere-200 dark:bg-Space-200 text-white duration-100 cursor-pointer hover:bg-Retrosphere-100 dark:hover:bg-Space-100"
           }`}
         >
           {`Semestrul ${i}`}
@@ -131,7 +131,7 @@ export default function PaymentObligation() {
       return (
         <div className="overflow-auto">
           <table className="table-auto w-full text-left">
-            <thead className="bg-Retrosphere-200 text-white font-semibold">
+            <thead className="bg-Retrosphere-200 dark:bg-Space-200 text-white font-semibold">
               <tr>
                 <th className="p-2 ">Denumire</th>
                 <th className="p-2">Suma</th>
@@ -141,12 +141,12 @@ export default function PaymentObligation() {
                 <th className="p-2 ">Suma plătită</th>
               </tr>
             </thead>
-            <tbody className=" bg-Retrosphere-500 font-medium">
+            <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
               {obligations.map((item, index) => (
                 <tr
                   key={item.id}
                   className={`${
-                    index % 2 == 0 ? "bg-Retrosphere-500" : "bg-Retrosphere-400"
+                    index % 2 == 0 ? "bg-Retrosphere-500 dark:bg-Space-500" : "bg-Retrosphere-400 dark:bg-Space-400"
                   }`}
                 >
                   <td className="p-2">{item.Den}</td>

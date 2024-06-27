@@ -107,7 +107,7 @@ export default function PaymentInformation() {
         <div className="flex flex-col w-full">
           <div className="overflow-auto w-full">
             <table className="table-auto text-lg  w-full text-left">
-              <thead className="bg-Retrosphere-200 text-white">
+              <thead className="bg-Retrosphere-200 dark:bg-Space-200 text-white">
                 <tr>
                   <th className="p-2 max-[525px]:text-sm">Denumire</th>
                   <th className="   p-2 max-[525px]:text-sm">Nr. document</th>
@@ -115,13 +115,13 @@ export default function PaymentInformation() {
                   <th className="   p-2 max-[525px]:text-sm">Suma</th>
                 </tr>
               </thead>
-              <tbody className=" bg-Retrosphere-500 font-medium">
+              <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
                 {paymentDocuments.map((item, index) => (
                   <tr
                     className={`${
                       index % 2 == 0
-                        ? "bg-Retrosphere-500"
-                        : "bg-Retrosphere-400"
+                        ? "bg-Retrosphere-500 dark:bg-Space-500"
+                        : "bg-Retrosphere-400 dark:bg-Space-400"
                     }`}
                   >
                     <td className="p-2 max-[525px]:text-sm">
@@ -161,7 +161,7 @@ export default function PaymentInformation() {
         <div className="flex flex-col w-full">
           <div className="overflow-auto w-full">
             <table className="table-auto text-lg  w-full text-left">
-              <thead className="bg-Retrosphere-200 text-white ">
+              <thead className="bg-Retrosphere-200 dark:bg-Space-200 text-white ">
                 <tr>
                   <th className="p-2 max-[525px]:text-sm">Sursa</th>
                   <th className="   p-2 max-[525px]:text-sm">Valoare sursă</th>
@@ -174,13 +174,13 @@ export default function PaymentInformation() {
                   </th>
                 </tr>
               </thead>
-              <tbody className=" bg-Retrosphere-500 font-medium">
+              <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
                 {paymentHistory.map((item, index) => (
                   <tr
                     className={`${
                       index % 2 == 0
-                        ? "bg-Retrosphere-500"
-                        : "bg-Retrosphere-400"
+                        ? "bg-Retrosphere-500 dark:bg-Space-500"
+                        : "bg-Retrosphere-400 dark:bg-Space-400"
                     }`}
                   >
                     <td className="p-2 max-[525px]:text-sm">

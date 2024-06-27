@@ -85,10 +85,14 @@ def obligations_endpoint():
                     if semester is None:
                         raise ValueError("Missing semester parameter")
                     obligations = get_obligation(username, password, semester)
-                    if type(response) is bool:
+                    if obligations == -2:
                         return jsonify({"error": "Parametrii nevalizi"}), 401
+                    elif obligations == -1:
+                        return jsonify({"error": "Wrong value for semester"}), 400
                     else:
-                        return jsonify(obligations), 200
+                        return jsonify(obligations
+
+                                       ), 200
                 except ValueError as e:
                     return jsonify({"error": str(e)}), 400
     else:

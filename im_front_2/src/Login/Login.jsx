@@ -48,16 +48,16 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-[calc(100vh-64px)] font-urbanist">
-      <div className="w-[90%] max-w-lg p-8 space-y-6 bg-Retrosphere-500 rounded-lg flex flex-col">
-        <h1 className="text-2xl font-bold text-center text-Retrosphere-100">
+    <div className="flex flex-col justify-center items-center min-h-[calc(100vh-64px)] font-urbanist bg-gradient-to-b from-Retrosphere-400 to-Retrosphere-200 dark:from-Space-400 dark:to-Space-200">
+      <div className="w-[90%] max-w-lg p-8 space-y-6 bg-Retrosphere-500 dark:bg-Space-500 rounded-lg flex flex-col">
+        <h1 className="text-2xl font-bold text-center text-Retrosphere-100 dark:text-Space-100">
           Conectare
         </h1>
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-col w-full my-4 text-lg text-Retrosphere-100">
+          <div className="flex flex-col w-full my-4 text-lg text-Retrosphere-100 dark:text-Space-100">
             <label
               htmlFor="nr_matricol"
-              className="font-semibold text-Retrosphere-100"
+              className="font-semibold text-Retrosphere-100 dark:text-Space-100"
             >
               Număr matricol
             </label>
@@ -67,7 +67,7 @@ export default function Login() {
               id="nr_matricol"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-3 py-2 mt-1 border text-Retrosphere-100 border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-Retrosphere-200"
+              className="w-full px-3 py-2 mt-1 border text-Retrosphere-100 dark:text-Space-100 border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-Retrosphere-200 dark:focus:ring-Space-200"
             />
             {showError && username === "" && (
               <div className="text-base text-red-700 flex flex-row gap-1 items-center pt-2">
@@ -79,7 +79,7 @@ export default function Login() {
           <div className="flex flex-col w-full my-4 text-lg">
             <label
               htmlFor="password"
-              className="font-semibold text-Retrosphere-100"
+              className="font-semibold text-Retrosphere-100 dark:text-Space-100"
             >
               Parolă
             </label>
@@ -89,7 +89,7 @@ export default function Login() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 mt-1 border text-Retrosphere-100 border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-Retrosphere-200"
+              className="w-full px-3 py-2 mt-1 border text-Retrosphere-100 dark:text-Space-100 border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-Retrosphere-200 dark:focus:ring-Space-200"
             />
             {showError && password === "" && (
               <div className="text-base text-red-700 flex flex-row gap-1 items-center pt-2">
@@ -110,7 +110,7 @@ export default function Login() {
               href="https://simsweb.uaic.ro/eSIMS/RecoverPassword.aspx"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center text-Retrosphere-300 hover:text-Retrosphere-100 duration-300 font-medium"
+              className="text-center text-Retrosphere-300 dark:text-Space-300 hover:text-Retrosphere-100 dark:hover:text-Space-100 duration-300 font-medium"
             >
               Ai uitat parola?
             </a>
@@ -118,7 +118,7 @@ export default function Login() {
 
           <button
             type="submit"
-            className="w-full px-4 py-2 text-xl font-semibold text-white bg-Retrosphere-300 rounded-md hover:bg-Retrosphere-100  duration-300"
+            className="w-full px-4 py-2 text-xl font-semibold text-white bg-Retrosphere-300 dark:bg-Space-300 rounded-md hover:bg-Retrosphere-100 dark:hover:bg-Space-100 duration-300"
           >
             Conectare
           </button>
@@ -128,7 +128,7 @@ export default function Login() {
             href="https://simsweb.uaic.ro/eSIMS/Register.aspx"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-center text-Retrosphere-300 hover:text-Retrosphere-100 duration-300 font-medium"
+            className="text-center text-Retrosphere-300 dark:text-Space-300 hover:text-Retrosphere-100 dark:hover:text-Space-100 duration-300 font-medium"
           >
             Nu ai cont? Înregistreaza-te aici!
           </a>

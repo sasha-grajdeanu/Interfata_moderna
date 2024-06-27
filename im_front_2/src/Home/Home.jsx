@@ -1,16 +1,16 @@
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center font-urbanist md:mx-16 mx-6 mb-4">
+    <div className="flex flex-col justify-center font-urbanist md:px-16 px-6 bg-gradient-to-b from-Retrosphere-400 to-Retrosphere-200 dark:from-Space-400 dark:to-Space-200">
       <div
         id="header-intro"
-        className="flex flex-col justify-center my-8 py-8 bg-Retrosphere-500 rounded-xl min-h-96"
+        className="flex flex-col justify-center my-8 py-8 bg-Retrosphere-500 dark:bg-Space-500 rounded-xl min-h-96"
       >
         <div
           id="header-info-top"
           className="flex flex-col md:flex-row items-center justify-center"
         >
           <p className="text-6xl">Salut! Aici </p>
-          <p className="text-[80px] md:text-[112px] md:pl-8 bg-clip-text font-semibold text-transparent bg-gradient-to-br from-Retrosphere-100 to-Retrosphere-200">I.M. - 1</p>
+          <p className="text-[80px] md:text-[112px] md:pl-8 bg-clip-text font-semibold text-transparent bg-gradient-to-br from-Retrosphere-100 to-Retrosphere-200 dark:from-Space-100 dark:to-Space-200">I.M. - 1</p>
         </div>
         <div id="header-info-bottom">
         <p className="text-center text-4xl md:text-5xl">
@@ -18,7 +18,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="bg-gradient-to-tl from-Retrosphere-100 to-Retrosphere-200 flex flex-col justify-between items-center md:flex-row p-4 rounded-xl text-white mb-8">
+      <div className="bg-Retrosphere-500 dark:bg-Space-500  flex flex-col justify-between items-center md:flex-row p-4 rounded-xl text-black mb-8">
         <div className="grid gap-auto grid-cols-3 items-center xl:gap-2">
           <h1 className="text-2xl col-span-full grid-flow-col xl:col-span-1 md:text-4xl">
             Cum utilizez aplicația?
@@ -58,8 +58,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-Retrosphere-100 to-Retrosphere-200 flex flex-col rounded-xl text-white mb-8">
-        <div className="border-b-4 p-4">
+      <div className="bg-Retrosphere-500 dark:bg-Space-500  flex flex-col rounded-xl text-black mb-8">
+        <div className="border-b-4 p-4 border-Retrosphere-100 dark:border-Space-100">
           <h2 className="text-3xl">Despre această aplicație</h2>
         </div>
         <div className="p-4">

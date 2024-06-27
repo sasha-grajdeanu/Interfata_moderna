@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Information from "./Information";
+import { Navigate } from "react-router-dom";
 
 export default function Courses() {
   const [noOfSemester, setNoOfSemester] = useState(null);
@@ -117,8 +118,8 @@ export default function Courses() {
           disabled={loading}
           className={`px-2 py-2 rounded text-lg text-center w-full max-md:text-sm ${
             selectedSemester === i
-              ? "bg-Retrosphere-100 text-white duration-100 font-semibold"
-              : "bg-Retrosphere-200 text-white duration-100 cursor-pointer hover:bg-Retrosphere-100"
+              ? "bg-Retrosphere-100 dark:bg-Space-100 text-white duration-100 font-semibold"
+              : "bg-Retrosphere-200 dark:bg-Space-200 text-white duration-100 cursor-pointer hover:bg-Retrosphere-100 dark:hover:bg-Space-100"
           }`}
         >
           {`Semestrul ${i}`}
@@ -168,7 +169,7 @@ export default function Courses() {
       {semesterCourses !== null ? (
         <div className="overflow-auto w-full">
           <table className="table-auto w-full text-lg">
-            <thead className="bg-Retrosphere-200 text-white font-semibold text-left">
+            <thead className="bg-Retrosphere-200 dark:bg-Space-200 text-white font-semibold text-left">
               <tr className="py-2">
                 <th className="p-2 max-md:hidden">An universitar</th>
                 <th className="p-2">Disciplina</th>
@@ -177,16 +178,16 @@ export default function Courses() {
                 <th className="p-2 max-[480px]:hidden">Data</th>
               </tr>
             </thead>
-            <tbody className=" bg-Retrosphere-500 font-medium">
+            <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
               {semesterCourses.map((item, index) => (
                 <React.Fragment key={index}>
                   <tr
                     className={`cursor-pointer py-1 ${
                       expandedRow === index
-                        ? "bg-Retrosphere-300 font-semibold text-white"
+                        ? "bg-Retrosphere-300 dark:bg-Space-300 font-semibold text-white"
                         : index % 2 === 0 ?
-                        "bg-Retrosphere-500"
-                        : "bg-Retrosphere-400"
+                        "bg-Retrosphere-500 dark:bg-Space-500"
+                        : "bg-Retrosphere-400 dark:bg-Space-400"
                     }`}
                     onClick={() => handleCourseClick(item, index)}
                   >
@@ -204,15 +205,15 @@ export default function Courses() {
                   </tr>
                   {expandedRow === index && (
                     <tr className={index % 2 === 0 ?
-                      "bg-Retrosphere-500"
-                      : "bg-Retrosphere-400"}>
+                      "bg-Retrosphere-500 dark:bg-Space-500"
+                      : "bg-Retrosphere-400 dark:bg-Space-400"}>
                       <td colSpan="5">
                         <div className="px-2 py-4">
                           <div className="font-bold pb-1 w-full text-center">
                             Istoricul materiei: {item["Denumire disciplina"]}
                           </div>
                           <table className=" w-full">
-                            <thead className="bg-Retrosphere-200 text-white text-left">
+                            <thead className="bg-Retrosphere-200 dark:bg-Space-200 text-white text-left">
                               <tr className="">
                                 <th className=" p-2 max-md:hidden">
                                   An universitar
@@ -226,8 +227,8 @@ export default function Courses() {
                               </tr>
                             </thead>
                             <tbody className={index % 2 === 0 ?
-                        "bg-Retrosphere-400"
-                        : "bg-Retrosphere-500"}>
+                        "bg-Retrosphere-400 dark:bg-Space-400"
+                        : "bg-Retrosphere-500 dark:bg-Space-500"}>
                               {item["Istoric"].map((row, rowIndex) => (
                                 <tr key={rowIndex} className="">
                                   <td className=" p-2 max-md:hidden">

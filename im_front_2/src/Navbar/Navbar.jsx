@@ -8,15 +8,32 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  function handleClick() {
+    if (sessionStorage.theme === "dark" || !("theme" in sessionStorage)) {
+      //add class=dark in html element
+      document.documentElement.classList.remove("dark");
+    } else {
+      //remove class=dark in html element
+      document.documentElement.classList.add("dark");
+    }
+
+    if (sessionStorage.theme === "dark") {
+      sessionStorage.theme = "light";
+    } else {
+      sessionStorage.theme = "dark";
+    }
+  }
+
   useEffect(() => {
     const jwt = sessionStorage.getItem("jwt");
     if (jwt) {
       setNavItems([
+        { label: "Schimbare temă", action: handleClick },
         { path: "/dashboard", label: "Situație școlară" },
         { path: "/", label: "Deconectare", action: logout }
       ]);
     } else {
-      setNavItems([{ path: "/login", label: "Conectare" }]);
+      setNavItems([{ label: "Schimbare temă", action: handleClick }, { path: "/login", label: "Conectare" }]);
     }
   }, [location.pathname]);
 
@@ -48,7 +65,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="bg-Retrosphere-100 flex justify-between items-center h-16 px-4 text-white font-urbanist">
+    <div className="bg-Retrosphere-100 dark:bg-Space-100 flex justify-between items-center h-16 px-4 text-white font-urbanist">
       <NavLink exact to="/" className="text-3xl text-white font-semibold">
         I.M. - 1
       </NavLink>
@@ -58,7 +75,7 @@ export default function Navbar() {
             <div
               key={item.path}
               onClick={item.action}
-              className="px-4 py-2 hover:bg-Retrosphere-200 rounded-xl font-semibold m-2 cursor-pointer duration-300  text-lg"
+              className="px-4 py-2 hover:bg-Retrosphere-200 dark:hover:bg-Space-200 rounded-xl font-semibold m-2 cursor-pointer duration-300  text-lg"
             >
               {item.label}
             </div>
@@ -67,8 +84,8 @@ export default function Navbar() {
               key={item.path}
               exact
               to={item.path}
-              className={`px-4 py-2 rounded-xl font-semibold m-2 duration-300 text-lg ${
-                location.pathname === item.path ? "bg-Retrosphere-200 duration-300" : "cursor-pointer"
+              className={`px-4 py-2 hover:bg-Retrosphere-200 dark:hover:bg-Space-200 rounded-xl font-semibold m-2 duration-300 text-lg ${
+                location.pathname === item.path ? "bg-Retrosphere-200 dark:bg-Space-200 duration-300" : "cursor-pointer"
               }`}
             >
               {item.label}
@@ -87,7 +104,7 @@ export default function Navbar() {
       <div
         className={
           nav
-            ? "fixed md:hidden left-0 top-[64px] w-[100%] bg-Retrosphere-100 ease-in-out duration-0 flex flex-col text-lg"
+            ? "fixed md:hidden left-0 top-[64px] w-[100%] bg-Retrosphere-100 dark:bg-Space-100 ease-in-out duration-0 flex flex-col text-lg"
             : "ease-in-out md:hidden w-[60%] duration-0 fixed top-0 bottom-0 left-[-100%] text-lg"
         }
       >
@@ -99,7 +116,7 @@ export default function Navbar() {
                 item.action();
                 resetNav();
               }}
-              className="p-4 hover:bg-Retrosphere-200 duration-300 cursor-pointer w-full text-center font-semibold"
+              className="p-4 hover:bg-Retrosphere-200 dark:hover:bg-Space-200 duration-300 cursor-pointer w-full text-center font-semibold"
             >
               {item.label}
             </div>
@@ -109,8 +126,8 @@ export default function Navbar() {
               exact
               to={item.path}
               onClick={resetNav}
-              className={`p-4 hover:bg-Retrosphere-200 duration-300 w-full text-center font-semibold ${
-                location.pathname === item.path ? "bg-Retrosphere-200 duration-300" : "cursor-pointer"
+              className={`p-4 hover:bg-Retrosphere-200 dark:hover:bg-Space-200 duration-300 w-full text-center font-semibold ${
+                location.pathname === item.path ? "bg-Retrosphere-200 dark:bg-Space-200 duration-300" : "cursor-pointer"
               }`}
             >
               {item.label}

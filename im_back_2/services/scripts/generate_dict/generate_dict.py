@@ -14,7 +14,6 @@ def create_dict_with_information(table_html, session, type_of_tabel, html_usage)
             key = ""
             for cell in row.find_all("td"):
                 if turn % 2 == 0:
-                    result[str(cell.get_text(strip=True)).upper()] = ""
                     key = str(cell.get_text(strip=True)).upper()
                 else:
                     result[key] = cell.get_text(strip=True)

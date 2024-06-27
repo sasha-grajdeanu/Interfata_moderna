@@ -23,7 +23,7 @@ semester_courses_bp = Blueprint('semester_courses', __name__, url_prefix='/semes
         {
             'name': 'semester',
             'in': 'query',
-            'type': 'int',
+            'type': 'string',
             'required': True,
             'description': 'The semester for which courses are requested.'
         }
@@ -100,8 +100,10 @@ def semester_courses_endpoint():
                         raise ValueError("Missing semester parameter")
                     print(semester)
                     courses = get_courses(username, password, semester)
-                    if type(response) is bool:
+                    if courses == -2:
                         return jsonify({"error": "Parametrii nevalizi"}), 401
+                    elif courses == -1:
+                        return jsonify({"error": "Wrong value for semester"}), 400
                     else:
                         return jsonify(courses), 200
                 except ValueError as e:

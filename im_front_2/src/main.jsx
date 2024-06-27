@@ -11,3 +11,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 )
+if (!("theme" in sessionStorage)) {
+  sessionStorage.theme = "light";
+  
+} else if (sessionStorage.theme === "dark") {
+  document.documentElement.classList.add("dark");
+} else{
+  document.documentElement.classList.remove("dark");
+}

@@ -69,10 +69,10 @@ export default function Information() {
       <div className="flex flex-col w-full">
         <div className="overflow-auto">
           <table className="table-auto text-lg w-full text-left">
-            <thead className="bg-Retrosphere-200 text-white font-semibold">
+            <thead className="bg-Retrosphere-200 dark:bg-Space-200 text-white font-semibold">
               <tr>
-                <th className="max-md:hidden p-2">An universitar</th>
-                <th className="p-2 ">An studiu</th>
+                <th className=" p-2">An universitar</th>
+                <th className=" max-md:hidden p-2 ">An studiu</th>
                 <th className="   p-2 ">Semestru</th>
                 <th className="p-2">Facultate</th>
                 <th className="p-2">Grupă</th>
@@ -81,18 +81,18 @@ export default function Information() {
                 <th className="max-lg:hidden p-2">Universitate</th>
               </tr>
             </thead>
-            <tbody className="bg-Retrosphere-500 font-medium  text-lg">
+            <tbody className="bg-Retrosphere-500 dark:bg-Space-500 font-medium  text-lg">
               {selectionInfo.map((item, index) => (
                 <tr
                   key={item.id}
                   className={`${
-                    index % 2 == 0 ? "bg-Retrosphere-500" : "bg-Retrosphere-400"
+                    index % 2 == 0 ? "bg-Retrosphere-500 dark:bg-Space-500" : "bg-Retrosphere-400 dark:bg-Space-400"
                   }`}
                 >
-                  <td className="p-2 max-md:hidden">
-                    {item.AnStudiu}
+                  <td className="p-2">
+                    {item.AnUniv}
                   </td>
-                  <td className=" p-2">{item.AnUniv}</td>
+                  <td className=" max-md:hidden p-2">{item.AnStudiu}</td>
                   <td className=" p-2">{item.Semestru}</td>
                   <td className=" p-2">{item.Facultate}</td>
                   <td className=" p-2">{item.Grupa}</td>

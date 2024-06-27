@@ -69,82 +69,82 @@ export default function PersonalData() {
         <table className=" table-auto text-lg w-full">
           <tbody>
             <tr className="max-sm:flex flex-col">
-              <th className=" bg-Retrosphere-200 flex items-start p-2 text-white font-semibold">
+              <th className=" bg-Retrosphere-200 dark:bg-Space-200 flex items-start p-2 text-white font-semibold">
                 ID
               </th>
-              <td className="bg-Retrosphere-500 p-2 font-medium">
+              <td className="bg-Retrosphere-500 dark:bg-Space-500 p-2 font-medium">
                 {personalData.ID}
               </td>
             </tr>
             <tr className="max-sm:flex flex-col">
-              <th className="bg-Retrosphere-200 flex items-start p-2 text-white font-semibold">
+              <th className="bg-Retrosphere-200 dark:bg-Space-200 flex items-start p-2 text-white font-semibold">
                 Nume
               </th>
-              <td className="bg-Retrosphere-500 p-2 font-medium">
+              <td className="bg-Retrosphere-500 dark:bg-Space-500 p-2 font-medium">
                 {personalData.NUME}
               </td>
             </tr>
             <tr className="max-sm:flex flex-col">
-              <th className="bg-Retrosphere-200 flex items-start p-2 text-white font-semibold">
+              <th className="bg-Retrosphere-200 dark:bg-Space-200 flex items-start p-2 text-white font-semibold">
                 Număr Matricol
               </th>
-              <td className="bg-Retrosphere-500 p-2 font-medium">
+              <td className="bg-Retrosphere-500 dark:bg-Space-500 p-2 font-medium">
                 {personalData.MATRICOL}
               </td>
             </tr>
             <tr className="max-sm:flex flex-col">
-              <th className="bg-Retrosphere-200 flex items-start p-2 text-white font-semibold">
+              <th className="bg-Retrosphere-200 dark:bg-Space-200 flex items-start p-2 text-white font-semibold">
                 Număr telefon
               </th>
-              <td className="bg-Retrosphere-500 p-2 font-medium">
+              <td className="bg-Retrosphere-500 dark:bg-Space-500 p-2 font-medium">
                 {personalData.TELEFON}
               </td>
             </tr>
             <tr className="max-sm:flex flex-col">
-              <th className="bg-Retrosphere-200 flex items-start p-2 text-white font-semibold">
+              <th className="bg-Retrosphere-200 dark:bg-Space-200 flex items-start p-2 text-white font-semibold">
                 E-mail
               </th>
-              <td className="bg-Retrosphere-500 p-2 font-medium">
+              <td className="bg-Retrosphere-500 dark:bg-Space-500 p-2 font-medium">
                 {personalData["E-MAIL"]}
               </td>
             </tr>
             <tr className="max-sm:flex flex-col">
-              <th className="bg-Retrosphere-200 flex items-start p-2 text-white font-semibold">
+              <th className="bg-Retrosphere-200 dark:bg-Space-200 flex items-start p-2 text-white font-semibold">
                 Data nașterii
               </th>
-              <td className="bg-Retrosphere-500 p-2 font-medium">
+              <td className="bg-Retrosphere-500 dark:bg-Space-500 p-2 font-medium">
                 {personalData["DATA NASTERII"]}
               </td>
             </tr>
             <tr className="max-sm:flex flex-col">
-              <th className="bg-Retrosphere-200 flex items-start p-2 text-white font-semibold">
+              <th className="bg-Retrosphere-200 dark:bg-Space-200 flex items-start p-2 text-white font-semibold">
                 Mama
               </th>
-              <td className="bg-Retrosphere-500 p-2 font-medium">
+              <td className="bg-Retrosphere-500 dark:bg-Space-500 p-2 font-medium">
                 {personalData["MAMA"]}
               </td>
             </tr>
             <tr className="max-sm:flex flex-col">
-              <th className="bg-Retrosphere-200 flex items-start p-2 text-white font-semibold">
+              <th className="bg-Retrosphere-200 dark:bg-Space-200 flex items-start p-2 text-white font-semibold">
                 Tata
               </th>
-              <td className="bg-Retrosphere-500 p-2 font-medium">
+              <td className="bg-Retrosphere-500 dark:bg-Space-500 p-2 font-medium">
                 {personalData["TATA"]}
               </td>
             </tr>
             <tr className="max-sm:flex flex-col">
-              <th className="bg-Retrosphere-200 flex items-start p-2 text-white font-semibold">
+              <th className="bg-Retrosphere-200 dark:bg-Space-200 flex items-start p-2 text-white font-semibold">
                 Naționalitatea
               </th>
-              <td className=" bg-Retrosphere-500 p-2 font-medium">
+              <td className=" bg-Retrosphere-500 dark:bg-Space-500 p-2 font-medium">
                 {personalData["NATIONALITATEA"]}
               </td>
             </tr>
             <tr className="max-sm:flex flex-col">
-              <th className="bg-Retrosphere-200 flex items-start p-2 text-white font-semibold">
+              <th className="bg-Retrosphere-200 dark:bg-Space-200 flex items-start p-2 text-white font-semibold">
                 Cetățenia
               </th>
-              <td className="bg-Retrosphere-500 p-2 font-medium">
+              <td className="bg-Retrosphere-500 dark:bg-Space-500 p-2 font-medium">
                 {personalData["CETATENIA"]}
               </td>
             </tr>

@@ -136,11 +136,11 @@ export default function Dashboard() {
   }, [dropdownOpen]);
 
   return (
-    <div className="flex flex-col justify-between min-h-[calc(100vh-64px)] font-urbanist">
+    <div className="flex flex-col justify-between min-h-[calc(100vh-64px)] font-urbanist bg-gradient-to-b from-Retrosphere-400 to-Retrosphere-200 dark:from-Space-400 dark:to-Space-200">
       <div className="hidden max-lg:flex mt-2 px-6">
         <button
           onClick={() => setDropdownOpen(!dropdownOpen)}
-          className="bg-Retrosphere-200 text-white px-4 py-2 rounded w-full text-xl font-semibold"
+          className="bg-Retrosphere-200 dark:bg-Space-200 text-white px-4 py-2 rounded w-full text-xl font-semibold"
         >
           {personalData && "Date personale"}
           {semesterCourses && "Cursuri"}
@@ -162,8 +162,8 @@ export default function Dashboard() {
               key={item.name}
               className={
                 item.selected
-                  ? "bg-Retrosphere-200 w-full justify-start"
-                  : "bg-Retrosphere-300 hover:bg-Retrosphere-200 duration-200 cursor-pointer w-full justify-start"
+                  ? "bg-Retrosphere-200 dark:bg-Space-200 w-full justify-start"
+                  : "bg-Retrosphere-300 hover:bg-Retrosphere-200 dark:bg-Space-300 dark:hover:bg-Space-200 duration-200 cursor-pointer w-full justify-start"
               }
               onClick={item.action}
             >
@@ -173,14 +173,14 @@ export default function Dashboard() {
         </div>
       )}
 
-      <div className="hidden lg:flex flex-row justify-around bg-Retrosphere-200 text-xl xl:text-2xl items-center w-full p-2 text-white">
+      <div className="hidden lg:flex flex-row justify-around bg-Retrosphere-200 dark:bg-Space-200 text-xl xl:text-2xl items-center w-full p-2 text-white">
         {menu.map((item) => (
           <button
             key={item.name}
             className={
               item.selected
-                ? "bg-Retrosphere-300 h-full text-center rounded font-semibold"
-                : "bg-Retrosphere-200 hover:bg-Retrosphere-300 duration-200 cursor-pointer  h-full text-center rounded"
+                ? "bg-Retrosphere-200 dark:bg-Space-200 h-full text-center rounded font-semibold"
+                : "bg-Retrosphere-300 hover:bg-Retrosphere-200 dark:bg-Space-300 dark:hover:bg-Space-200 duration-200 cursor-pointer  h-full text-center rounded"
             }
             onClick={item.action}
           >

@@ -81,7 +81,7 @@ export default function Grades() {
         </h1>
         <div className="overflow-auto w-full">
           <table className="table-auto text-lg w-full text-left">
-            <thead className="bg-Retrosphere-200 text-white font-semibold">
+            <thead className="bg-Retrosphere-200 dark:bg-Space-200 text-white font-semibold">
               <tr className="py-2">
                 <th className="   p-2">Semestru</th>
                 <th className="p-2 max-[480px]:hidden">Media Aritmetică</th>
@@ -90,11 +90,11 @@ export default function Grades() {
                 <th className="   p-2">Credite</th>
               </tr>
             </thead>
-            <tbody className=" bg-Retrosphere-500 font-medium">
+            <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
               {grades.map((item, index) => (
                 <tr
                   className={`${
-                    index % 2 == 0 ? "bg-Retrosphere-500" : "bg-Retrosphere-400"
+                    index % 2 == 0 ? "bg-Retrosphere-500 dark:bg-Space-500" : "bg-Retrosphere-400 dark:bg-Space-400"
                   }`}
                 >
                   <td className=" p-2">{item.Semestru}</td>
@@ -114,7 +114,7 @@ export default function Grades() {
         </h1>
         <div className="overflow-auto w-full">
           <table className="table-auto   w-full text-left">
-            <thead className="bg-Retrosphere-200 text-white font-semibold">
+            <thead className="bg-Retrosphere-200 dark:bg-Space-200 text-white font-semibold">
               <tr>
                 <th className="p-2">An</th>
                 <th className="p-2 max-[480px]:hidden">Media Aritmetică</th>
@@ -123,11 +123,11 @@ export default function Grades() {
                 <th className="   p-2">Credite</th>
               </tr>
             </thead>
-            <tbody className=" bg-Retrosphere-500 font-medium">
+            <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
               {oddIndexGrades.map((item, index) => (
                 <tr
                   className={`${
-                    index % 2 == 0 ? "bg-Retrosphere-500" : "bg-Retrosphere-400"
+                    index % 2 == 0 ? "bg-Retrosphere-500 dark:bg-Space-500" : "bg-Retrosphere-400 dark:bg-Space-400"
                   }`}
                 >
                   <td className=" p-2">{index + 1}</td>
