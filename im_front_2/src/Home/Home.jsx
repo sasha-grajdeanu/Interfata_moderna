@@ -24,7 +24,7 @@ export default function Home() {
             Cum utilizez aplicația?
           </h1>
           <ul className="text-xl list-decimal text-justify list-inside col-span-full xl:col-span-2 md:text-2xl">
-            <li className="my-2">
+            <li className="my-2" key={1}>
               Te rugăm să ai un cont valid de eSims. Dacă nu ai un cont de
               eSims, îl poți face&nbsp;
               <a
@@ -37,7 +37,7 @@ export default function Home() {
               </a>
               .
             </li>
-            <li className="my-2">
+            <li className="my-2" key={2}>
               Dacă ai un cont valid de eSims, dar ai uitat parola, nu este nicio
               problemă, îți poți afla parola&nbsp;
               <a
@@ -50,7 +50,7 @@ export default function Home() {
               </a>
               .
             </li>
-            <li className="my-2">
+            <li className="my-2" key={3}>
               Dacă ai cont valid de eSims, te poți întoarce pe platforma noastră
               și să te conectezi pentru a-ți vedea situația școlară.
             </li>

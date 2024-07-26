@@ -93,6 +93,7 @@ export default function Grades() {
             <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
               {grades.map((item, index) => (
                 <tr
+                  key={item.Semestru}
                   className={`${
                     index % 2 == 0 ? "bg-Retrosphere-500 dark:bg-Space-500" : "bg-Retrosphere-400 dark:bg-Space-400"
                   }`}
@@ -113,7 +114,7 @@ export default function Grades() {
           Traiectoria studentului pe ani
         </h1>
         <div className="overflow-auto w-full">
-          <table className="table-auto   w-full text-left">
+          <table className="table-auto w-full text-left">
             <thead className="bg-Retrosphere-200 dark:bg-Space-200 text-white font-semibold">
               <tr>
                 <th className="p-2">An</th>
@@ -126,6 +127,7 @@ export default function Grades() {
             <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
               {oddIndexGrades.map((item, index) => (
                 <tr
+                key={item.Semestru}
                   className={`${
                     index % 2 == 0 ? "bg-Retrosphere-500 dark:bg-Space-500" : "bg-Retrosphere-400 dark:bg-Space-400"
                   }`}

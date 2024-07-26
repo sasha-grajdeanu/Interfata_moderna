@@ -30,10 +30,13 @@ export default function Navbar() {
       setNavItems([
         { label: "Schimbare temă", action: handleClick },
         { path: "/dashboard", label: "Situație școlară" },
-        { path: "/", label: "Deconectare", action: logout }
+        { path: "/", label: "Deconectare", action: logout },
       ]);
     } else {
-      setNavItems([{ label: "Schimbare temă", action: handleClick }, { path: "/login", label: "Conectare" }]);
+      setNavItems([
+        { label: "Schimbare temă", action: handleClick },
+        { path: "/login", label: "Conectare" },
+      ]);
     }
   }, [location.pathname]);
 
@@ -66,14 +69,14 @@ export default function Navbar() {
 
   return (
     <div className="bg-Retrosphere-100 dark:bg-Space-100 flex justify-between items-center h-16 px-4 text-white font-urbanist">
-      <NavLink exact to="/" className="text-3xl text-white font-semibold">
+      <NavLink to="/" className="text-3xl text-white font-semibold">
         I.M. - 1
       </NavLink>
       <div className="hidden md:flex">
         {navItems.map((item) =>
           item.action ? (
             <div
-              key={item.path}
+              key={item.label}
               onClick={item.action}
               className="px-4 py-2 hover:bg-Retrosphere-200 dark:hover:bg-Space-200 rounded-xl font-semibold m-2 cursor-pointer duration-300  text-lg"
             >
@@ -81,11 +84,12 @@ export default function Navbar() {
             </div>
           ) : (
             <NavLink
-              key={item.path}
-              exact
+              key={item.label}
               to={item.path}
               className={`px-4 py-2 hover:bg-Retrosphere-200 dark:hover:bg-Space-200 rounded-xl font-semibold m-2 duration-300 text-lg ${
-                location.pathname === item.path ? "bg-Retrosphere-200 dark:bg-Space-200 duration-300" : "cursor-pointer"
+                location.pathname === item.path
+                  ? "bg-Retrosphere-200 dark:bg-Space-200 duration-300"
+                  : "cursor-pointer"
               }`}
             >
               {item.label}
@@ -111,7 +115,7 @@ export default function Navbar() {
         {navItems.map((item) =>
           item.action ? (
             <div
-              key={item.path}
+              key={item.label}
               onClick={() => {
                 item.action();
                 resetNav();
@@ -122,12 +126,13 @@ export default function Navbar() {
             </div>
           ) : (
             <NavLink
-              key={item.path}
-              exact
+              key={item.label}
               to={item.path}
               onClick={resetNav}
               className={`p-4 hover:bg-Retrosphere-200 dark:hover:bg-Space-200 duration-300 w-full text-center font-semibold ${
-                location.pathname === item.path ? "bg-Retrosphere-200 dark:bg-Space-200 duration-300" : "cursor-pointer"
+                location.pathname === item.path
+                  ? "bg-Retrosphere-200 dark:bg-Space-200 duration-300"
+                  : "cursor-pointer"
               }`}
             >
               {item.label}

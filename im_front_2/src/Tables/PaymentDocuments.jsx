@@ -70,7 +70,7 @@ export default function PaymentDocuments() {
             </thead>
             <tbody className="border border-black">
               {paymentDocuments.map((item) => (
-                <tr className="border border-black font-mono">
+                <tr className="border border-black font-mono" key={item.DataDoc}>
                   <td className="border border-black text-center max-[480px]:text-sm">
                     {item.Den}
                   </td>

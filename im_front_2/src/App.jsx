@@ -1,4 +1,3 @@
-// App.js
 import { useState } from "react";
 import "./App.css";
 import Home from "./Home/Home";
@@ -27,12 +26,6 @@ function App() {
               }
             />
           </Routes>
-
-          {/* <div className="flex">
-            <button onClick={handleClick} className="flex-initial w-64 font-bold underline decoration-sky-500 text-red-800">
-              Change Mode (Dark/Light)
-            </button>
-          </div> */}
         </main>
       </div>
     </>

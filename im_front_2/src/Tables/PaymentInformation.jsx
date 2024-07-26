@@ -118,6 +118,7 @@ export default function PaymentInformation() {
               <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
                 {paymentDocuments.map((item, index) => (
                   <tr
+                  key={index}
                     className={`${
                       index % 2 == 0
                         ? "bg-Retrosphere-500 dark:bg-Space-500"
@@ -177,6 +178,7 @@ export default function PaymentInformation() {
               <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
                 {paymentHistory.map((item, index) => (
                   <tr
+                  key={index}
                     className={`${
                       index % 2 == 0
                         ? "bg-Retrosphere-500 dark:bg-Space-500"

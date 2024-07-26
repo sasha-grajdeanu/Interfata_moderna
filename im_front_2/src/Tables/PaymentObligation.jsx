@@ -144,7 +144,7 @@ export default function PaymentObligation() {
             <tbody className=" bg-Retrosphere-500 dark:bg-Space-500 font-medium">
               {obligations.map((item, index) => (
                 <tr
-                  key={item.id}
+                  key={index}
                   className={`${
                     index % 2 == 0 ? "bg-Retrosphere-500 dark:bg-Space-500" : "bg-Retrosphere-400 dark:bg-Space-400"
                   }`}
